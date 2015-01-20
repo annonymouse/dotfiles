@@ -1,0 +1,5 @@
+[user]
+	name = annonymouse
+	email = annonymouse@example.co.uk
+[core]
+	excludesfile = /Users/alexy/.gitignore_global
