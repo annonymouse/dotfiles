@@ -1,6 +1,6 @@
 [user]
 	name = annonymouse
-	email = annonymouse@example.co.uk
+	email = annonymouse@users.noreply.github.com
 [core]
 	excludesfile = /Users/alexy/.gitignore_global
 [alias]
