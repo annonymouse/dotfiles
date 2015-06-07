@@ -3,3 +3,5 @@
 	email = annonymouse@example.co.uk
 [core]
 	excludesfile = /Users/alexy/.gitignore_global
+[alias]
+    glog = log --graph --decorate --all
