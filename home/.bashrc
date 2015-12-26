@@ -21,3 +21,5 @@ export PS1='$(prompt_command)\n'$PS1
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 alias tatum=less
 alias channing=grep
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/code/go
