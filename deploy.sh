@@ -23,10 +23,11 @@ deploy(){
     CASTLE=$2
     $HOMESHICK list | grep "$USER/$CASTLE" && { echo "$CASTLE already exists" >&2; exit -1 ; }
     $HOMESHICK clone -f $USER/$CASTLE
-    $HOMESHICK link -f $CASTLE
     $HOMESHICK cd $CASTLE
     [ ! -x deploy ] || ./deploy
+    $HOMESHICK link -f $CASTLE
 }
+
 # Check whether homeshick is installed
 command -v homeshick >/dev/null 2>&1 || [ -d $HOMESICK_DIR ] || installHomeshick
 # Check whether this directory is symlinked
