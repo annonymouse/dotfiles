@@ -21,7 +21,7 @@ symlinkdotfiles(){
 deploy(){
     USER=$1
     CASTLE=$2
-    $HOMESHICK list | grep "$USER/$CASTLE" && { echo "$CASTLE already exists" >&2; exit -1 ; }
+    $HOMESHICK list | grep "$USER/$CASTLE$" && { echo "$CASTLE already exists" >&2; exit -1 ; }
     $HOMESHICK clone -f $USER/$CASTLE
     $HOMESHICK cd $CASTLE
     [ ! -x deploy ] || ./deploy
