@@ -2,8 +2,7 @@
 set -e
 
 HOMESICK_DIR=$HOME/.homesick/repos
-HOMESHICK_PATH=$HOMESICK_DIR/homeshick/bin
-HOMESHICK=$HOMESHICK_PATH/homeshick
+source $HOMESICK_DIR/homeshick/homeshick.sh
 DOTFILES_DIR=$(pwd)/$(dirname $0)
 installHomeshick() {
     echo "Homeshick not installed, installing..."
@@ -15,17 +14,17 @@ symlinkdotfiles(){
     echo "Symlinking dotfiles"
     [ ! -d $HOMESICK_DIR/dotfiles ] || { echo "Dotfiles directory exists" >&2; exit -1 ; }
     ln -s $DOTFILES_DIR $HOMESICK_DIR/dotfiles
-    $HOMESHICK link dotfiles
+    homeshick link dotfiles
 }
 
 deploy(){
     USER=$1
     CASTLE=$2
-    $HOMESHICK list | grep "$USER/$CASTLE$" && { echo "$CASTLE already exists" >&2; exit -1 ; }
-    $HOMESHICK clone -f $USER/$CASTLE
-    $HOMESHICK cd $CASTLE
-    [ ! -x deploy ] || ./deploy
-    $HOMESHICK link -f $CASTLE
+    homeshick list | grep "$USER/$CASTLE$" && { echo "$CASTLE already exists" >&2; exit -1 ; }
+    homeshick clone -vf $USER/$CASTLE
+    homeshick cd $CASTLE
+    [ ! -x deploy ] || echo "Running $USER/$CASTLE deploy script" && ./deploy
+    homeshick link -vf $CASTLE
 }
 
 # Check whether homeshick is installed
