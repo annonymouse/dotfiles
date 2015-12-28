@@ -23,3 +23,5 @@ alias tatum=less
 alias channing=grep
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=$HOME/code/go
+
+homeshick refresh -b 1
