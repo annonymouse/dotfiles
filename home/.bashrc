@@ -14,14 +14,15 @@ function prompt_command()
     printf "% 3d" $sv
 }
 
-export PS1='$(prompt_command)\n'$PS1
+# Don't run this twice.  Double check we don't run bashrc twice anyway.
+[[ $PS1 = '$(prompt_command)\n'* ]] || export PS1='$(prompt_command)\n'$PS1
 
 ################################################################################
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 alias tatum=less
 alias channing=grep
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/arc/arcanist/bin:$HOME/code/go_appengine
 export GOPATH=$HOME/code/go
-
-homeshick refresh -b 1
+echo "Checking dotfiles..."
+homeshick refresh -f 7
