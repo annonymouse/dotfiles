@@ -2,7 +2,6 @@
 set -e
 
 HOMESICK_DIR=$HOME/.homesick/repos
-source $HOMESICK_DIR/homeshick/homeshick.sh
 DOTFILES_DIR=$(pwd)/$(dirname $0)
 installHomeshick() {
     echo "Homeshick not installed, installing..."
@@ -29,6 +28,8 @@ deploy(){
 
 # Check whether homeshick is installed
 command -v homeshick >/dev/null 2>&1 || [ -d $HOMESICK_DIR ] || installHomeshick
+source $HOMESICK_DIR/homeshick/homeshick.sh
+
 # Check whether this directory is symlinked
 [ -h $HOMESICK_DIR/dotfiles ] || symlinkdotfiles
 
