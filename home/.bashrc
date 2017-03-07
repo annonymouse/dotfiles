@@ -22,7 +22,7 @@ function prompt_command()
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 alias tatum=less
 alias channing=grep
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/arc/arcanist/bin:$HOME/code/go_appengine
 export GOPATH=$HOME/code/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/arc/arcanist/bin:$HOME/code/go_appengine:$GOPATH/bin
 echo "Checking dotfiles..."
 homeshick refresh -f 7
